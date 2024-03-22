@@ -45,6 +45,6 @@ app.get("/api/geturl", async (req, res) => {
     }
 });
 
-app.listen(3400, () => {
+app.listen(443, () => {
     console.log("app is running in port num ", 3400);
 });
