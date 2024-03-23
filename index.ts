@@ -8,6 +8,8 @@ app.use(cors());
 
 app.post("/api/record", async (req, res) => {
     const data = req.body;
+    console.log(data);
+    console.log(data);
     const lastdata = await createmaprf(data);
     if (lastdata) {
         res.send({ status:true});
@@ -18,6 +20,9 @@ app.post("/api/record", async (req, res) => {
 
 app.post("/api/error", async (req, res) => {
     const data = req.body;
+
+    console.log(data);
+    console.log(data);
     const lastdata = await createerror(data);
     if (lastdata) {
         res.send({ status:true});
@@ -28,6 +33,9 @@ app.post("/api/error", async (req, res) => {
 
 app.post("/api/update", async (req, res) => {
     const data = req.body;
+
+    console.log(data);
+    console.log(data);
     const lastdata = await updateurlrecord(data.id);
     if (lastdata) {
         res.send({ status:true});
