@@ -2,9 +2,11 @@ import express from "express";
 import cors from "cors";
 import {createerror, createmaprf, updateurlrecord} from "./db/Create";
 import {fetchedUrls} from "./db/Fetch";
+import bodyParser from "body-parser";
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 
 app.post("/api/record", async (req, res) => {
     const data = req.body;
