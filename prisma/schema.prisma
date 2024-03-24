@@ -22,6 +22,8 @@ model Mapmodal {
   review    String?
   url       String    @db.VarChar(450)
   Keyid     Int
+  city      String?
+  country   String?
   published Boolean   @default(false)
 }
 
