@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import {createerror, createmaprf, updateurlrecord} from "./db/Create";
-import {fetchedUrls} from "./db/Fetch";
+import {fetchedUrls, fetchedUrlsRe} from "./db/Fetch";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -54,6 +54,18 @@ app.get("/api/geturl", async (req, res) => {
         res.sendStatus(403);
     }
 });
+
+
+app.get("/api/geturlre", async (req, res) => {
+    const lastdata = await fetchedUrlsRe();
+    if (lastdata) {
+        res.send({data:lastdata, status:true});
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+
 
 app.listen(3000, () => {
     console.log("app is running in port num ", 3000);

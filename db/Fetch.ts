@@ -57,3 +57,22 @@ export const fetchedUrls = async () => {
     return false;
   }
 };
+
+
+export const fetchedUrlsRe = async () => {
+  try {
+    const result = await prisma.urls.findMany({
+      where: {
+        status: false,
+      },
+      orderBy: {
+        id: "desc",
+      },
+      take: 20,
+    });
+    return result;
+  } catch (e) {
+    console.error(e);
+    return false;
+  }
+};
