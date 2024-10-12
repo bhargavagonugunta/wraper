@@ -67,6 +67,6 @@ app.get("/api/geturlre", async (req, res) => {
 
 
 
-app.listen(3000, () => {
+app.listen(3004, () => {
     console.log("app is running in port num ", 3000);
 });

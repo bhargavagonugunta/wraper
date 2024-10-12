@@ -14,17 +14,19 @@ datasource db {
 }
 
 model Mapmodal {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime? @updatedAt
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   keyword   String
-  title     String    @db.VarChar(255)
+  title     String   @db.VarChar(255)
   review    String?
-  url       String    @db.VarChar(450)
+  url       String   @db.VarChar(450)
   Keyid     Int
-  city      String?
-  country   String?
-  published Boolean   @default(false)
+  city      String
+  country   String
+  published Boolean  @default(false)
+
+  @@index([city, keyword, Keyid])
 }
 
 model Errordata {
@@ -32,7 +34,7 @@ model Errordata {
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
   keyword   String
-  url       String    @db.VarChar(450)
+  url       String    @db.VarChar(550)
   Keyid     Int
   solved    Boolean   @default(false)
 }
@@ -42,11 +44,14 @@ model Urls {
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
   keyword   String
-  url       String    @db.VarChar(255)
+  url       String    @unique @db.VarChar(255)
   Keyid     Int
   city      String
+  re_count  Int       @default(0)
   isfetch   Boolean   @default(false)
   status    Boolean   @default(false)
+
+  @@index([Keyid, city])
 }
 
 model Profile {
