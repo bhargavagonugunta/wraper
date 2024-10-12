@@ -49,7 +49,7 @@ export const fetchedUrls = async () => {
       orderBy: {
         id: "asc",
       },
-      take: 20,
+      take: 40,
     });
     return result;
   } catch (e) {
