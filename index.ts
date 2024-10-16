@@ -5,7 +5,7 @@ import {fetchedUrls, fetchedUrlsRe} from "./db/Fetch";
 import bodyParser from "body-parser";
 
 const app = express();
-app.use(cors());
+app.use(cors({origin:"*"}));
 app.use(bodyParser.json());
 
 app.post("/api/record", async (req, res) => {

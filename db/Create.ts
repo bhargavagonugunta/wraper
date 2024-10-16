@@ -9,7 +9,7 @@ export const createmaprf = async (data: any) => {
     console.log("Query");
     return true;
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return false;
   }
 };
