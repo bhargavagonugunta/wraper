@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Mapmodal" ALTER COLUMN "url" SET DATA TYPE VARCHAR(650);

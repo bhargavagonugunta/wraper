@@ -20,7 +20,7 @@ model Mapmodal {
   keyword   String
   title     String   @db.VarChar(255)
   review    String?
-  url       String   @db.VarChar(450)
+  url       String   @db.VarChar(650)
   Keyid     Int
   city      String
   country   String
