@@ -5,65 +5,65 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+	provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+	provider = "postgresql"
+	url      = env("DATABASE_URL")
 }
 
 model Mapmodal {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  keyword   String
-  title     String   @db.VarChar(255)
-  review    String?
-  url       String   @db.VarChar(650)
-  Keyid     Int
-  city      String
-  country   String
-  published Boolean  @default(false)
+	id        Int      @id @default(autoincrement())
+	createdAt DateTime @default(now())
+	updatedAt DateTime @updatedAt
+	keyword   String
+	title     String   @db.VarChar(455)
+	review    String?
+	url       String   @db.VarChar(1050)
+	Keyid     Int
+	city      String
+	country   String
+	published Boolean  @default(false)
 
-  @@index([city, keyword, Keyid])
+	@@index([city, keyword, Keyid])
 }
 
 model Errordata {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime? @updatedAt
-  keyword   String
-  url       String    @db.VarChar(550)
-  Keyid     Int
-  solved    Boolean   @default(false)
+	id        Int       @id @default(autoincrement())
+	createdAt DateTime  @default(now())
+	updatedAt DateTime? @updatedAt
+	keyword   String
+	url       String    @db.VarChar(550)
+	Keyid     Int
+	solved    Boolean   @default(false)
 }
 
 model Urls {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime? @updatedAt
-  keyword   String
-  url       String    @unique @db.VarChar(255)
-  Keyid     Int
-  city      String
-  re_count  Int       @default(0)
-  isfetch   Boolean   @default(false)
-  status    Boolean   @default(false)
+	id        Int       @id @default(autoincrement())
+	createdAt DateTime  @default(now())
+	updatedAt DateTime? @updatedAt
+	keyword   String
+	url       String    @unique @db.VarChar(255)
+	Keyid     Int
+	city      String
+	re_count  Int       @default(0)
+	isfetch   Boolean   @default(false)
+	status    Boolean   @default(false)
 
-  @@index([Keyid, city])
+	@@index([Keyid, city])
 }
 
 model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
+	id     Int     @id @default(autoincrement())
+	bio    String?
+	user   User    @relation(fields: [userId], references: [id])
+	userId Int     @unique
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  profile Profile?
+	id      Int      @id @default(autoincrement())
+	email   String   @unique
+	name    String?
+	profile Profile?
 }

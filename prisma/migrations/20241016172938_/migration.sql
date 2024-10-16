@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Mapmodal" ALTER COLUMN "title" SET DATA TYPE VARCHAR(455);
